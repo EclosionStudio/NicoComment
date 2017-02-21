@@ -15,7 +15,7 @@ const webpackDevMiddleware = require ('webpack-dev-middleware');
 const webpackHotMiddleware = require ('webpack-hot-middleware');
 const compiler = webpack(config);
 app.use(webpackDevMiddleware(compiler, {noInfo: true, publicPath: config.output.publicPath}));
-app.use(webpackHotMiddleware(compiler));
+app.use(webpackHotMiddleware(compiler, {log: console.log}));
 
 
 // 评论文件地址, 是server.js当前的位置
@@ -26,9 +26,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 // 静态文件文件目录
 app.use('/', express.static(path.join(__dirname, '..', 'client')));
 
-// app.use('/', function (req, res) {
-//     res.sendFile(path.resolve('client/index.html'));
-// });
+ //app.use('/', function (req, res) {
+ //   res.sendFile(path.resolve('client/index.html'));
+ //});
 
 // 响应头信息
 app.use(function(req, res, next){
@@ -36,6 +36,7 @@ app.use(function(req, res, next){
     res.setHeader('Access-Control-Allow-Origin','*');
     // 缓存设置
     res.setHeader('Cache-Control','no-cache');
+
     next();
 });
 // 设定get请求url对应的处理函数
