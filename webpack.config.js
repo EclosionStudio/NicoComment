@@ -24,7 +24,7 @@ module.exports = {
     output: {
         filename: 'bundle.js',
         path: path.join(__dirname, '/client/dist/js'),
-        publicPath: '/',
+        publicPath: 'http://localhost:3000',
     },
     plugins:[
         // Hot Module Replacement
