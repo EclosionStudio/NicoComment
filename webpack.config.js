@@ -1,14 +1,25 @@
 'use strict';
 
 const path = require('path');
+const webpack = require ('webpack');
 
 module.exports = {
-    entry: ['./client/client.js'],  // starting file
+    deltool: 'inline-source-map',
+    entry: [
+        'webpack-hot-middleware/client.js',
+        './client/client.js',
+    ],  // starting file
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'client/dist/js'),
         publicPath: '/',
     },
+    plugin:[
+        // Hot Module Replacement
+        new webpack.optimize.OccurrenceOrderPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoErrorsPlugin()
+    ],
     module: {
         loaders: [
             {
@@ -18,7 +29,7 @@ module.exports = {
                 // tell babel what to do
                 // compile js and ES6 preset
                 query: {
-                    presets: ['react', 'es2015']
+                    presets: ['react', 'es2015', 'react-hmre']
                 }
             }
         ]
