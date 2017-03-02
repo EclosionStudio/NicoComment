@@ -6,9 +6,16 @@ import React, { Component } from 'react';
 
 class CoButtonIn extends Component {
 
+    handleSubmit(event){
+        event.preventDefault();
+        console.log('submit');
+        this.props.submitComment(this.props.commentData.userComBody);
+    }
+
     render(){
         return(
-            <button className="btn-submit-comment">Submit</button>
+            <button className="btn-submit-comment"
+                    onClick={this.handleSubmit.bind(this)}>Submit</button>
         );
     }
 

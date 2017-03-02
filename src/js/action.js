@@ -3,11 +3,16 @@
  * Created by tokei on 2017/3/1.
  */
 
-import subComment  from './actions/subComment';
-
 let actions = {
 
-    submitComments: subComment
+    submitComment: (comBody) => {
+        return {
+            type: 'USER_SUBMIT_COMMENT',
+            userComBody: comBody,
+        }
+    }
+
+
 
 
 }

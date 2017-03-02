@@ -18,13 +18,15 @@ import actions from './js/action'
 class App extends Component {
 
     render(){
+        let dataRaw = this.props.comMsg;
         return(
-            <div action = {this.props.actions.submitComments}>
-                <h1>This is my app</h1>
-                <CoInputBox/>
-                <CoTextArea/>
-                <CoButtonIn/>
-                <CoList/>
+            <div>
+                <h1>NicoComment 测试App version Beta</h1>
+                <CoInputBox commentData={dataRaw} />
+                <CoTextArea commentBody={dataRaw[0].userComBody} />
+                <CoButtonIn submitComment = {this.props.actions.submitComment }
+                            commentData={dataRaw} />
+                <CoList commentData={dataRaw} />
             </div>
         );
     }

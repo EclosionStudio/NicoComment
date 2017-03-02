@@ -12,7 +12,17 @@ class CoList extends Component {
         return(
             <div>
                 <ul>
-                    <CoListItem />
+                    {
+                        this.props.commentData.map(
+                            (comment) => {
+                                return <CoListItem  key={comment.id}
+                                                    comment={comment}
+                                                    />
+                            }
+                        )
+
+                    }
+
                 </ul>
             </div>
         );

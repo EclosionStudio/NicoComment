@@ -9,10 +9,12 @@ class CoListItem extends Component {
 
     render(){
         return(
-
-            <li>
-                <div> This is an item </div>
-            </li>
+                    <li>
+                        <span>Email: {this.props.comment.userEmail} </span><br />
+                        <span>Name: {this.props.comment.userName} </span><br />
+                        <span>Website: {this.props.comment.userWebsite} </span><br />
+                        <span>Comment: {this.props.comment.userComBody}</span><br />
+                    </li>
 
         );
     }
