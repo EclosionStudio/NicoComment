@@ -5,7 +5,7 @@
  */
 
 import React, { Component } from 'react';
-import CoButtonIn from './js/components/CoButtonIn';
+import CoButtonIn from './js/components/CommentBox';
 import CoInputBox from './js/components/CoInputBox';
 import CoTextArea from './js/components/CoTextArea';
 import CoList from './js/components/CoList'
@@ -22,9 +22,7 @@ class App extends Component {
         return(
             <div>
                 <h1>NicoComment 测试App version Beta</h1>
-                <CoInputBox commentData={dataRaw} />
-                <CoTextArea commentBody={dataRaw[0].userComBody} />
-                <CoButtonIn submitComment = {this.props.actions.submitComment }
+                <CoButtonIn submitComment = { this.props.actions.submitComment }
                             commentData={dataRaw} />
                 <CoList commentData={dataRaw} />
             </div>

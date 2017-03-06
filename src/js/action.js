@@ -5,10 +5,17 @@
 
 let actions = {
 
-    submitComment: (comBody) => {
+    submitComment: (text) => {
         return {
             type: 'USER_SUBMIT_COMMENT',
-            userComBody: comBody,
+            comMsg: text,
+        }
+    },
+
+    changeComment: (text) => {
+        return {
+            type: 'USER_CHANGE_COMMENT',
+            comMsg: text
         }
     }
 

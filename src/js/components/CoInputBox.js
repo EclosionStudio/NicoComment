@@ -7,32 +7,26 @@ import React, { Component } from 'react';
 
 class CoInputBox extends Component {
 
-    constructor(props, context){
-        super(props);
-        this.state ={
-            email: 'x@x.com',
-            nickName: 'unknown people',
-            website: 'http://www.qq.com',
-        }
+
+    handleChange1(event){
+        console.log(event.target.value);
+        let text = event.target.value;
+        let cat = 'userName';
+        this.props.submitComment(text,cat);
     }
 
-
-    handleChangeName(event){
+    handleChange2(event){
         console.log(event.target.value);
-        this.props.commentData.userName = event.target.value;
-        this.setState({userName: event.target.value});
+        let text = event.target.value;
+        let cat = 'userEmail';
+        this.props.submitComment(text,cat);
     }
 
-    handleChangeMail(event){
+    handleChange3(event){
         console.log(event.target.value);
-        this.props.commentData.userEmail = event.target.value;
-        this.setState({userEmail: event.target.value});
-    }
-
-    handleChangeWebsite(event){
-        console.log(event.target.value);
-        this.props.commentData.website = event.target.value;
-        this.setState({website: event.target.value});
+        let text = event.target.value;
+        let cat = 'userWebsite';
+        this.props.submitComment(text,cat);
     }
 
 
@@ -42,20 +36,17 @@ class CoInputBox extends Component {
                 <input type="text"
                        className = "usr-Name"
                        placeholder="*昵称"
-                       value={this.state.nickName}
-                       onChange = {this.handleChangeName.bind(this)}
+                       onChange = {this.handleChange1.bind(this)}
                                     />
                 <input type="text"
                        className = "usr-Mail"
-                       onChange = {this.handleChangeMail.bind(this)}
+                       onChange = {this.handleChange2.bind(this)}
                        placeholder="*邮箱"
-                       value={this.state.email}
                         />
                 <input type="text"
                        className = "usr-Website"
                        placeholder="网站"
-                       value={this.state.website}
-                       onChange={this.handleChangeWebsite.bind(this)}
+                       onChange={this.handleChange3.bind(this)}
                         />
             </div>
         );

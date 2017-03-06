@@ -18,6 +18,12 @@ let initialState = {
         userEmail: 'admin@nekohand.moe',
         userWebsite: 'bla.nekohand.moe',
         userComBody: 'blablablabla'
+    }, {
+        id: 1,
+        userName: 'NicoYazawa25252',
+        userEmail: 'reply@nekohand.moe',
+        userWebsite: 'reply.nekohand.moe',
+        userComBody: 'lOVE'
     }]
 
 };

@@ -5,18 +5,7 @@
 
 let subComment = {
     // plain javascript object
-    type: 'SUBMIT_COMMENT',
-    func: function(commentTextObj){
-
-        return {
-            userName: commentTextObj.userName,
-            userMail: commentTextObj.userMail,
-            userWebsite: commentTextObj.userWebsite,
-            userComBody:  commentTextObj.userComBody,
-        }
-
-    }
-
+    type: 'USER_SUBMIT_COMMENT',
 
 }
 

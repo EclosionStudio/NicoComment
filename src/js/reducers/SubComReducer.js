@@ -7,11 +7,13 @@ function SubComReducer(comMsg=[], action) {
     switch (action.type) {
         case 'USER_SUBMIT_COMMENT':
             return [{
-                userComBody: action.userComBody,
+                comMsg: action.comMsg,
                 id: comMsg.reduce((maxID, comMsgItem) => {
                     return Math.max(comMsgItem.id, maxID)
                 }, -1) + 1,
             }, ...comMsg]
+        case 'USER_CHANGE_COMMENT':
+            return [{}]
         default:
             return comMsg;
     }
