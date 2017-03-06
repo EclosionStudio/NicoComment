@@ -11,15 +11,16 @@ class CoButtonIn extends Component {
     handleSubmit(event){
         event.preventDefault();
         console.log('submit');
-        console.log(this.props.commentData);
-       // this.props.submitComment(this.props.commentData.userComBody);
+        //console.log(this.props.commentData);
+        this.props.submitComment(this.props.commentData);
     }
 
     render(){
         return(
             <div>
-                <CoInputBox/>
-                <CoTextArea/>
+                <CoInputBox submitComment = {this.props.submitComment }
+                            changeComment = {this.props.changeComment }/>
+                <CoTextArea changeComment = {this.props.changeComment }/>
                 <button className="btn-submit-comment"
                         onClick={this.handleSubmit.bind(this)}>Submit</button>
 

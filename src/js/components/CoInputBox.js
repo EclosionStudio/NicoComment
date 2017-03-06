@@ -5,28 +5,26 @@
 
 import React, { Component } from 'react';
 
+
+
 class CoInputBox extends Component {
 
 
+
     handleChange1(event){
-        console.log(event.target.value);
-        let text = event.target.value;
-        let cat = 'userName';
-        this.props.submitComment(text,cat);
+        // console.log(event.target.value);
+
+        this.props.changeComment(event.target.value,'userName');
     }
 
     handleChange2(event){
-        console.log(event.target.value);
-        let text = event.target.value;
-        let cat = 'userEmail';
-        this.props.submitComment(text,cat);
+
+        this.props.changeComment(event.target.value,'userEmail');
+
     }
 
     handleChange3(event){
-        console.log(event.target.value);
-        let text = event.target.value;
-        let cat = 'userWebsite';
-        this.props.submitComment(text,cat);
+        this.props.changeComment(event.target.value,'userWebsite');
     }
 
 
