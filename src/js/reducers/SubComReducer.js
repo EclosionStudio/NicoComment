@@ -39,17 +39,13 @@ function SubComReducer(comMsg=[], action) {
                     //console.log(objMsg);
                     break;
                 default:
-                    console.log(objMsg);
+                    console.log('没有输入');
             }
 
             if(objMsg.userName && objMsg.userEmail && objMsg.userWebsite && objMsg.userComBody){
-                //comMsg = [objMsg, ...comMsg];
-                //objMsg.id = comMsg.reduce((maxID, comMsgItem) => {
-                //        return Math.max(comMsgItem.id, maxID)
-                //    }, -1) + 1;
-                //console.log(comMsg);
+                console.log('可以提交');
             }
-            // comMsg = [objMsg, ...comMsg];
+
             return comMsg;
         default:
             return comMsg;

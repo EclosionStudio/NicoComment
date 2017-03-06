@@ -17,9 +17,8 @@ class CoButtonIn extends Component {
 
     render(){
         return(
-            <div>
-                <CoInputBox submitComment = {this.props.submitComment }
-                            changeComment = {this.props.changeComment }/>
+            <div className="main-comment-box">
+                <CoInputBox changeComment = {this.props.changeComment }/>
                 <CoTextArea changeComment = {this.props.changeComment }/>
                 <button className="btn-submit-comment"
                         onClick={this.handleSubmit.bind(this)}>Submit</button>
