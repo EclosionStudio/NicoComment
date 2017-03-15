@@ -20,8 +20,7 @@ class App extends Component {
         return(
             <div>
                 <h1>NicoComment 测试App version Beta</h1>
-                <CoButtonIn submitComment = { this.props.actions.submitComment }
-                            changeComment = { this.props.actions.changeComment }
+                <CoButtonIn actions = { this.props.actions }
                             commentData={dataRaw} />
                 <CoList commentData={dataRaw} />
             </div>

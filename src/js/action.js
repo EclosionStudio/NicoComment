@@ -28,6 +28,22 @@ let actions = {
             cat: cat,
             objMsg : objMsg
         }
+    },
+
+    showReturnStrings: () => {
+        return {
+            type: 'SHOW_RETURN_STRINGS',
+            comMsg: objMsg
+        }
+    },
+
+
+    handleLoad: (text) => {
+        return (dispatch, getState)=>{
+            setTimeout(()=> {
+                dispatch(actions.showReturnStrings());
+            },2500);
+        }
     }
 
 }
