@@ -7,6 +7,7 @@
 import React, { Component } from 'react';
 import CoButtonIn from './js/components/CommentBox';
 import CoList from './js/components/CoList'
+import NicoList from './js/components/NicoList';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
@@ -18,11 +19,14 @@ class App extends Component {
     render(){
         let dataRaw = this.props.comMsg;
         return(
-            <div>
-                <h1>NicoComment 测试App version Beta</h1>
+            <div className="container">
+                <div className="page-header">
+                    <h3>NicoComment 测试</h3>
+                </div>
                 <CoButtonIn actions = { this.props.actions }
                             commentData={dataRaw} />
                 <CoList commentData={dataRaw} />
+                <NicoList />
             </div>
         );
     }

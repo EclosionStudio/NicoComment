@@ -14,7 +14,7 @@ class CoTextArea extends Component {
 
     render(){
         return(
-            <div>
+            <div className="input-group">
                 <textarea className="comment-body"
                         onChange= {this.changeText.bind(this)} >
 

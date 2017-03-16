@@ -10,8 +10,8 @@ class CoList extends Component {
 
     render(){
         return(
-            <div>
-                <ul>
+
+                <ul className="list-group">
                     {
                         this.props.commentData.map(
                             (comment) => {
@@ -24,7 +24,7 @@ class CoList extends Component {
                     }
 
                 </ul>
-            </div>
+
         );
     }
 

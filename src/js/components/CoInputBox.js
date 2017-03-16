@@ -30,19 +30,20 @@ class CoInputBox extends Component {
 
     render(){
         return(
-            <div>
-                <input type="text"
-                       className = "usr-Name"
+            <div className="input-group">
+                <input
+                       type="text"
+                       className = "form-control"
                        placeholder="*昵称"
                        onChange = {this.handleChange1.bind(this)}
                                     />
                 <input type="text"
-                       className = "usr-Mail"
+                       className = "form-control"
                        onChange = {this.handleChange2.bind(this)}
                        placeholder="*邮箱"
                         />
                 <input type="text"
-                       className = "usr-Website"
+                       className = "form-control"
                        placeholder="网站"
                        onChange={this.handleChange3.bind(this)}
                         />

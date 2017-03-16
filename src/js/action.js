@@ -54,7 +54,7 @@ let actions = {
         }
     },
 
-    showReturnStrings: () => {
+    showReturnStrings: (objMsg) => {
         return {
             type: 'SHOW_RETURN_STRINGS',
             comMsg: objMsg
@@ -68,7 +68,8 @@ let actions = {
             //     dispatch(actions.showReturnStrings());
             // },2500);
             getJSON("/api/getComment").then(function(json){
-                console.log('contents:' + json);
+                // console.log('contents:' + json);
+                dispatch(actions.showReturnStrings(json));
             }, function(error){
                console.log('The error is' + error);
             })
