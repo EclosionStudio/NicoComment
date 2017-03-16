@@ -12,6 +12,6 @@ let finalCreateStore = compose(
     applyMiddleware(thunk, logger())
 )(createStore);
 
-export default function configureStore(initialState = {comMsg:[]}) {
+export default function configureStore(initialState = {comMsg:[], serverData:{}}) {
         return finalCreateStore(rootReducer, initialState);
 }

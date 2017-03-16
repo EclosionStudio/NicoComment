@@ -11,6 +11,7 @@ let objMsg = {
     userComBody: 0
 };
 
+
 let getJSON = function(url){
    let promise = new Promise(function(resolve, reject){
         let client = new XMLHttpRequest();
@@ -57,12 +58,12 @@ let actions = {
     showReturnStrings: (objMsg) => {
         return {
             type: 'SHOW_RETURN_STRINGS',
-            comMsg: objMsg
+            serverData: Object.assign(objMsg)
         }
     },
 
 
-    handleLoad: (text) => {
+    handleLoad: () => {
         return (dispatch, getState)=>{
             // setTimeout(()=> {
             //     dispatch(actions.showReturnStrings());

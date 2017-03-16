@@ -24,8 +24,12 @@ let initialState = {
         userEmail: 'reply@nekohand.moe',
         userWebsite: 'reply.nekohand.moe',
         userComBody: 'lOVE'
-    }]
-
+    }],
+    serverData: {
+        address: {},
+        apiVersion: '1.0',
+        commentBody: []
+    }
 };
 
 let store = configureStore(initialState);

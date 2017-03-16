@@ -15,9 +15,10 @@ class CoTextArea extends Component {
     render(){
         return(
             <div className="input-group">
-                <textarea className="comment-body"
-                        onChange= {this.changeText.bind(this)} >
-
+                <textarea
+                    className="comment-body"
+                    placeholder="评论这里写"
+                    onChange= {this.changeText.bind(this)} >
                 </textarea>
             </div>
         );

@@ -18,15 +18,20 @@ class App extends Component {
 
     render(){
         let dataRaw = this.props.comMsg;
+        let serverData = this.props.serverData;
         return(
             <div className="container">
                 <div className="page-header">
                     <h3>NicoComment 测试</h3>
                 </div>
-                <CoButtonIn actions = { this.props.actions }
-                            commentData={dataRaw} />
-                <CoList commentData={dataRaw} />
-                <NicoList />
+                <CoButtonIn
+                    actions = { this.props.actions }
+                    commentData={dataRaw} />
+                <CoList
+                    commentData={dataRaw} />
+                <NicoList
+                    actions = { this.props.actions }
+                    serverData={serverData} />
             </div>
         );
     }
