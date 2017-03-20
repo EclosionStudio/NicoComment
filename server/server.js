@@ -44,11 +44,13 @@ app.get('/api/getComment', function(req, res) {
 });
 
 app.post('/api/postComment',function (req, res) {
+
     fs.readFile(DATA_PATH, function (err, data) {
         if(err){
             console.log(err)
         }
         let comments = JSON.parse(data);
+
         // ES6 class
         let newComment = {
             "uniqueID": Math.floor(Math.random()*100+30).toString(),
@@ -61,15 +63,18 @@ app.post('/api/postComment',function (req, res) {
             get reply () {return this.uniqueID;},
             "score": [90, 20]
         }
+        console.log(data);
         comments.commentBody.push(newComment);
-        fs.writeFile(DATA_PATH, 
+        fs.writeFile(
+            DATA_PATH,
             JSON.stringify(comments, null, 4),
             function (err) {
                 if(err){
                     console.log(err);
                 }
                 res.json(comments);
-            })
+            }
+        )
     })
 })
 

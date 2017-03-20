@@ -34,14 +34,42 @@ let getJSON = function(url){
   return promise;
 }
 
+let postJSON = function (objMsg) {
+    let promise = new Promise(function(resolve, reject){
+        let postUrl = '/api/postComment';
+        let client = new XMLHttpRequest();
+        client.onreadystatechange = handler;
+        client.responseType = "json";
+        client.open('POST', postUrl);
+        client.setRequestHeader('Content-Type', 'x-www-form-urlencoded');
+        let params = JSON.stringify({
+            'author':'NicoNicoNi',
+            'mailaddr':'1203@qq.com',
+            'website':'it is website',
+            'comment':'sample comment'
+        });
+        console.log(params);
+        client.send(params);
 
+        function handler(){
+            if( this.readyState !==4 ) return;
+            if( this.status == 200){
+                resolve( this.response );
+                console.log('the response has been sent');
+                console.log(this.response);
+            } else {
+                reject(new Error(this.statusText));
+            }
+        }
+    });
+    return promise;
+}
 
 let actions = {
 
-    submitComment: (text) => {
+    submitComment: () => {
         return {
             type: 'USER_SUBMIT_COMMENT',
-            comMsg: text,
             objMsg : objMsg
         }
     },
@@ -62,6 +90,19 @@ let actions = {
         }
     },
 
+    handleSubmit: (objMsg) => {
+        return (dispatch, getState)=>{
+
+            postJSON(objMsg).then(function(){
+                //console.log(objMsg);
+                dispatch(actions.submitComment());
+            }, function () {
+                console.log('The error is' + error);
+            })
+
+
+        }
+    },
 
     handleLoad: () => {
         return (dispatch, getState)=>{

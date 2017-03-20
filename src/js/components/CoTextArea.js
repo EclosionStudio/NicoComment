@@ -8,7 +8,7 @@ import React, { Component } from 'react';
 class CoTextArea extends Component {
 
     changeText(event){
-        this.props.changeComment(event.target.value, 'userComBody');
+ //       this.props.changeComment(event.target.value, 'userComBody');
 
     }
 

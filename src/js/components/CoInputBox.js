@@ -14,17 +14,17 @@ class CoInputBox extends Component {
     handleChange1(event){
         // console.log(event.target.value);
 
-        this.props.changeComment(event.target.value,'userName');
+     //   this.props.changeComment(event.target.value,'userName');
     }
 
     handleChange2(event){
 
-        this.props.changeComment(event.target.value,'userEmail');
+     //   this.props.changeComment(event.target.value,'userEmail');
 
     }
 
     handleChange3(event){
-        this.props.changeComment(event.target.value,'userWebsite');
+    //    this.props.changeComment(event.target.value,'userWebsite');
     }
 
 

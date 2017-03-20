@@ -4,7 +4,7 @@
  */
 
 import React, { Component } from 'react';
-import NicoInfoList from './NicoInfoList';
+import NicoListHead from './NicoListHead';
 import NicoListItem from './NicoListItem';
 
 class NicoList extends Component {
@@ -12,17 +12,16 @@ class NicoList extends Component {
     render(){
         return(
             <div>
-                <h2>Reply Nico <small>ApiVersion: { this.props.serverData.apiVersion}</small></h2>
-                <div className="alert alert-info" role="alert">
-                    <NicoInfoList infoAddress = { this.props.serverData.address } />
-                </div>
+                <NicoListHead serverData = { this.props.serverData } />
                 <ul className="list-group">
                     {
                         this.props.serverData.commentBody.map(
-                            (comment)=>{
+                            /*react里面对于数组的map 必须传入俩个参数*/
+                            (comment, key)=>{
                                 return(
                                     <NicoListItem
-                                        comment={comment}
+                                        comment={ comment }
+                                        key={ key }
                                     />
                                 )
                             }
