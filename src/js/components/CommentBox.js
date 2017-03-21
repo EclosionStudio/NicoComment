@@ -10,7 +10,7 @@ class CoButtonIn extends Component {
 
     handleSubmit(event){
         event.preventDefault();
-        console.log('submit');
+        //console.log('submit');
         //console.log(this.props.commentData);
         //this.props.actions.submitComment(this.props.commentData);
         this.props.actions.handleSubmit(this.props.commentData);

@@ -11,8 +11,26 @@ let objMsg = {
     userComBody: 0
 };
 
+let obj2StrMap = (obj) => {
+    let strMap = new Map();
+    for(let k of Object.keys(obj)){
+        strMap.set(k, obj[k]);
+    }
+    return strMap;
+};
 
-let getJSON = function(url){
+let json2PostParams = (json) => {
+
+    let mapJson =  obj2StrMap(JSON.parse(json));
+    let postParams = '';
+    for(let item of mapJson.entries()){
+        postParams += `${item[0]}=${item[1]}&`;
+    }
+    postParams = postParams.substring(0,postParams.length-1);
+    return postParams;
+};
+
+let getJSON = (url) => {
    let promise = new Promise(function(resolve, reject){
         let client = new XMLHttpRequest();
         client.open("GET",url);
@@ -34,29 +52,37 @@ let getJSON = function(url){
   return promise;
 }
 
-let postJSON = function (objMsg) {
+let postJSON = () => {
     let promise = new Promise(function(resolve, reject){
-        let postUrl = '/api/postComment';
+        // console.log(objMsg);
+        /*let params = JSON.stringify({
+            author:'NicoNicoNi22343232',
+            mailaddr:'1223203@qq.com',
+            website:'it is website',
+            comment:'sample comment'
+        });*/
+        let params = JSON.stringify({
+            author: objMsg.userName,
+            mailaddr: objMsg.userEmail,
+            website: objMsg.userWebsite,
+            comment: objMsg.userComBody
+        });
+        params = json2PostParams(params);
+        // console.log(params);
         let client = new XMLHttpRequest();
         client.onreadystatechange = handler;
         client.responseType = "json";
-        client.open('POST', postUrl);
-        client.setRequestHeader('Content-Type', 'x-www-form-urlencoded');
-        let params = JSON.stringify({
-            'author':'NicoNicoNi',
-            'mailaddr':'1203@qq.com',
-            'website':'it is website',
-            'comment':'sample comment'
-        });
-        console.log(params);
+        client.open( 'POST', '/api/postComment', true );
+        client.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded' );
         client.send(params);
+        //client.send('author=Nico&mailaddr=22@qq.com&website=http://2321232&comment=nimei');
 
         function handler(){
             if( this.readyState !==4 ) return;
             if( this.status == 200){
                 resolve( this.response );
-                console.log('the response has been sent');
-                console.log(this.response);
+                // console.log('the response has been sent');
+                // console.log(this.response);
             } else {
                 reject(new Error(this.statusText));
             }
@@ -90,13 +116,12 @@ let actions = {
         }
     },
 
-    handleSubmit: (objMsg) => {
+    handleSubmit: () => {
         return (dispatch, getState)=>{
 
-            postJSON(objMsg).then(function(){
-                //console.log(objMsg);
+            postJSON().then(function(){
                 dispatch(actions.submitComment());
-            }, function () {
+            }, function (error) {
                 console.log('The error is' + error);
             })
 

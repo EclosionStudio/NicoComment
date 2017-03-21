@@ -24,7 +24,7 @@ app.use(express.static('./server'))
 
 app.use(bodyParser.json());
 // http://stackoverflow.com/questions/25471856/express-throws-error-as-body-parser-deprecated-undefined-extended
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin','*');
 
@@ -78,11 +78,18 @@ app.post('/api/postComment',function (req, res) {
     })
 })
 
+/*app.use('/', function(req, res, next){
+    res.sendFile(path.resolve('client/index2.html'));
 
+});*/
 
-app.use('/', function(req,res){
+app.use('/', function(req, res, next){
    res.sendFile(path.resolve('client/index.html'));
+
 });
+
+
+
 
 const port = 3000;
 
